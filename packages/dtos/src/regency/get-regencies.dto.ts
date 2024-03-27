@@ -4,7 +4,7 @@ import { PaginationDTO } from '../pagination/pagination.dto';
 export class GetRegenciesDTO extends PaginationDTO {
   @IsString()
   @IsOptional()
-  readonly provinsiCode: string;
+  readonly provinceCode: string;
 
   @IsString()
   @IsOptional()

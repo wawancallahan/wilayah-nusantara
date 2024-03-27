@@ -13,7 +13,7 @@ export class RegencyService {
   ) {}
 
   public async getRegencies(getRegenciesQuery: GetRegenciesDTO) {
-    const { limit, page, provinsiCode, code, name } = getRegenciesQuery;
+    const { limit, page, provinceCode, code, name } = getRegenciesQuery;
 
     const whereClause: FilterQuery<Regency> = {};
 
@@ -29,8 +29,8 @@ export class RegencyService {
       };
     }
 
-    if (provinsiCode) {
-      whereClause.province = this.provinceRepo.getReference(provinsiCode);
+    if (provinceCode) {
+      whereClause.province = this.provinceRepo.getReference(provinceCode);
     }
 
     const [regencies, regencyCount] = await this.regencyRepo.findAndCount(

@@ -13,7 +13,7 @@ export class VillageService {
   ) {}
 
   public async getVillages(getVillagesQuery: GetVillagesDTO) {
-    const { limit, page, code, kecamatanCode, name } = getVillagesQuery;
+    const { limit, page, code, districtCode, name } = getVillagesQuery;
 
     const whereClause: FilterQuery<Village> = {};
 
@@ -29,8 +29,8 @@ export class VillageService {
       };
     }
 
-    if (kecamatanCode) {
-      whereClause.district = this.districtRepo.getReference(kecamatanCode);
+    if (districtCode) {
+      whereClause.district = this.districtRepo.getReference(districtCode);
     }
 
     const [villages, villageCount] = await this.villageRepo.findAndCount(

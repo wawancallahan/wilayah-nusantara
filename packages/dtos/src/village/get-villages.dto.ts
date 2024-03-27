@@ -4,7 +4,7 @@ import { PaginationDTO } from '../pagination/pagination.dto';
 export class GetVillagesDTO extends PaginationDTO {
   @IsString()
   @IsOptional()
-  readonly kecamatanCode: string;
+  readonly districtCode: string;
 
   @IsString()
   @IsOptional()

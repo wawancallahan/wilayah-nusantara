@@ -13,7 +13,7 @@ export class DistrictService {
   ) {}
 
   public async getDistricts(getDistrictsQuery: GetDistrictsDTO) {
-    const { limit, page, code, name, kabkotCode } = getDistrictsQuery;
+    const { limit, page, code, name, regencyCode } = getDistrictsQuery;
 
     const whereClause: FilterQuery<District> = {};
 
@@ -29,8 +29,8 @@ export class DistrictService {
       };
     }
 
-    if (kabkotCode) {
-      whereClause.regency = this.regencyRepo.getReference(kabkotCode);
+    if (regencyCode) {
+      whereClause.regency = this.regencyRepo.getReference(regencyCode);
     }
 
     const [districts, districtCount] = await this.districtRepo.findAndCount(
